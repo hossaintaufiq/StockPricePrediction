@@ -67,7 +67,19 @@ The notebook demonstrates a complete end-to-end pipeline for stock price predict
 5. Modeling
    - ARIMA is used as a baseline time-series forecasting model.
    - An LSTM-based sequence-to-sequence model is built for multi-step forecasting.
+   - Additional regression-based models were explored, including Random Forest, AdaBoost, Decision Tree, LightGBM, and XGBoost.
    - Predictions are evaluated using error metrics such as MAE and RMSE.
+
+## Best Model Decision
+
+Based on the regression-model evaluation performed on the prepared dataset, the Random Forest Regressor is the strongest performer in the current setup. It achieved the lowest MAE on the test split among the evaluated models, making it the recommended model for this project workflow.
+
+Why it was selected:
+- It produced the lowest error among the tested regression models.
+- It handled the tabular feature set well when combined with the engineered stock and sentiment features.
+- It offers a strong balance of accuracy, robustness, and simplicity compared with the other tested alternatives.
+
+> Please note that this conclusion is based on the current preprocessing and feature set used in the notebook. With further tuning, feature engineering, or a different train/test split, results may vary.
 
 ## Installation
 
@@ -81,7 +93,7 @@ The notebook demonstrates a complete end-to-end pipeline for stock price predict
 2. Install the required dependencies:
 
    ```bash
-   pip install pandas numpy matplotlib seaborn yfinance requests statsmodels scikit-learn textblob tensorflow jupyter
+   pip install pandas numpy matplotlib seaborn yfinance requests statsmodels scikit-learn textblob tensorflow jupyter lightgbm xgboost
    ```
 
 ## Running the Project
